@@ -228,7 +228,7 @@ void HacksComp_RecheckFlags(struct HacksComp* hacks) {
 	HacksComp_SetAll(hacks, hax);
 	hacks->CanBePushed   = true;
 
-	HacksComp_ParseFlag(hacks, "+fly",         "-fly",         &hacks->CanFly);
+	/*HacksComp_ParseFlag(hacks, "+fly", "-fly", &hacks->CanFly);
 	HacksComp_ParseFlag(hacks, "+noclip",      "-noclip",      &hacks->CanNoclip);
 	HacksComp_ParseFlag(hacks, "+speed",       "-speed",       &hacks->CanSpeed);
 	HacksComp_ParseFlag(hacks, "+respawn",     "-respawn",     &hacks->CanRespawn);
@@ -236,7 +236,15 @@ void HacksComp_RecheckFlags(struct HacksComp* hacks) {
 	HacksComp_ParseFlag(hacks, "+thirdperson", "-thirdperson", &hacks->CanUseThirdPerson);
 	HacksComp_ParseFlag(hacks, "+names",       "-names",       &hacks->CanSeeAllNames);
 
-	if (hacks->IsOp) HacksComp_ParseAllFlag(hacks, "+ophax", "-ophax");
+	if (hacks->IsOp) HacksComp_ParseAllFlag(hacks, "+ophax", "-ophax");*/
+	HacksComp_ParseFlag(hacks, "+noclip", "", &hacks->CanNoclip);
+	HacksComp_ParseFlag(hacks, "+speed", "", &hacks->CanSpeed);
+	HacksComp_ParseFlag(hacks, "+respawn", "", &hacks->CanRespawn);
+	HacksComp_ParseFlag(hacks, "+push", "", &hacks->CanBePushed);
+	HacksComp_ParseFlag(hacks, "+thirdperson", "", &hacks->CanUseThirdPerson);
+	HacksComp_ParseFlag(hacks, "+names", "", &hacks->CanSeeAllNames);
+
+	if (hacks->IsOp) HacksComp_ParseAllFlag(hacks, "+ophax", "");
 	hacks->BaseHorSpeed = HacksComp_ParseFlagFloat("horspeed=", hacks);
 	hacks->MaxHorSpeed  = HacksComp_ParseFlagFloat("maxspeed=", hacks);
 	hacks->MaxJumps     = HacksComp_ParseFlagInt("jumps=",      hacks);
